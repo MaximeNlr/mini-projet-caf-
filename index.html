@@ -11,19 +11,40 @@
 <header>
     
 </header>
-    <section class="gestionArticle">
-        <h2>Fiche Article</h2>
-        <div class="gestionArticleContainer">
-            <input type="text" placeholder="rechercher">
-            <input type="text" placeholder="créer un produit">
-            <input type="text" placeholder="type de produit">
-            <button class="ajouter">ajouter</button>
-        </div>
+<body>
+    <h1>Gestion des stocks</h1>
+    <section class="stockContainer">
+        <section class="gestionArticle">
+            <div class="gestionArticleContainer">
+                <input type="text" placeholder="créer un produit" class="creationProduit">
+                <input type="text" placeholder="type de produit" class="typeProduit">
+                <button class="ajouter">créer la fiche article</button>
+                <input type="text" placeholder="rechercher" class="searchBarre">
+                <button class="validateButton">rechercher fiche article</button>
+            </div>
+        </section>
+        <table class ="listeArticle">
+            <thead>
+                <tr>
+                    <th>Nom</td>
+                    <th>PA HT</td>
+                    <th>PV HT</td>
+                    <th>Marge HT</td>
+                    <th>PV TTC</td>
+                    <th>Type</td>
+                    <th>% d'alcool</td>
+                    <th>Quantité</td>
+                </tr>
+            </thead>
+            <tbody class="bodyTable">
+                
+            </tbody>
+        </table>
+    
     </section>
-    <ul>
-        
-    </ul>
+</body>
 
+    
 
     <script src="script.js"></script>
 </body>

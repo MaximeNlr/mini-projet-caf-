@@ -1,22 +1,48 @@
-header img {
-    width: 20%;
+.stockContainer {
+    display: flex;
+    gap: 50px;
+}
+
+h1 {
+    text-align: center;
 }
 
 .gestionArticle {
     text-align: center;
+    margin-top: 15px;
+    margin-left: 20px;
+    background-color: #62719a;
+    border-radius: 20px;
+    
 }
-
 .gestionArticleContainer {
     display: flex;
-    justify-content: center;
-    gap: 10px;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px;
 }
 
-.ficheArticle {
-    background-color: #1D2B53;    
-    display: flex;
-    justify-content: center;
-    padding: 50px;    
+.listeArticle{
+    background-color: #6d80b5;    
+    height: 550px; 
+    padding: 20px; 
+    border: 3px solid black;
+    width: 70%; 
+    border-radius: 20px;
+    text-align: center;
 }
+
+.listeArticle input {
+    width: 30%;
+}
+
+.listeArticle th {
+    border: 1px solid black;
+}
+
+.listeArticle td {
+    border: 1px solid black;
+}
+
 
 
