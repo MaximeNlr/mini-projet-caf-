@@ -3,26 +3,32 @@
     gap: 50px;
 }
 
-.detailArticle {
-    border: 1px solid black;
-    padding: 60px;
-    width: 100%;
+.caracteristiques {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-right: 20px;
 }
 
 .gestionArticle {
     display: flex;
-    flex-wrap: wrap;
     background-color: #d9d9d9;
     border: 1px solid black;
     margin-bottom: 20px;
+    height: 200px;
 }
+
+.ficheArticle {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+}
+
 .gestionArticleContainer {
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 40px;
-    margin-right: 100px;
-    margin-left: 50px;
 }
 
 .inputFiche {

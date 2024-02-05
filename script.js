@@ -4,9 +4,12 @@ let ajouter = document.querySelector(".ajouter");
 let listeArticle = document.querySelector(".listeArticle");
 let bodyTable = document.querySelector(".bodyTable");
 
+let caracteristiques =[];
 
 
-
+function carctFiche() {
+    
+}
 
 ajouter.addEventListener("click", function (event) {
     event.preventDefault();
@@ -32,7 +35,6 @@ ajouter.addEventListener("click", function (event) {
     quantite.innerHTML =("<input type =number>");
     validateButtonTable.innerHTML =("<input type =button value =ok class =validateButtonTable>");
     
-
     bodyTable.appendChild(ficheArticleContainer);
     ficheArticleContainer.appendChild(ficheArticle);
     ficheArticleContainer.appendChild(prixAchat);
@@ -45,15 +47,12 @@ ajouter.addEventListener("click", function (event) {
     ficheArticleContainer.appendChild(validateButtonTable)
 
     validateButtonTable.addEventListener("click", function (validateButtonTable) {
-        valueProduit = document.getElementById("valueProduit");
-        valueAlcool = document.getElementById("valueAlcool");
-        console.log(valueProduit.value);
-        if(valueProduit.value == "bna"){
-            degAlcool.innerHTML =("<input id = valueAlcool type =text value =N/A>")
-        } else {
-            degAlcool.innerHTML =("<input id = valueAlcool type =text value =>")
-        }
+       const prixAchatValue = prixAchat.value;
+       const prixVenteValue = prixVente.value;
+       const margeValue = marge.value;
+       const prixVenteTTCValue = prixVenteTTC.value;
         
+       console.log(prixAchatValue, prixVenteValue, margeValue);
     })  
 })
 
