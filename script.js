@@ -1,13 +1,25 @@
 let searchBarre = document.querySelector(".searchBarre");
 let creationProduit = document.querySelector(".creationProduit");
 let ajouter = document.querySelector(".ajouter");
-let listeArticle = document.querySelector(".listeArticle");
 let bodyTable = document.querySelector(".bodyTable");
+let inputPrixAchat = document.querySelector("#inputPrixAchat");
+let inputPrixVente = document.querySelector("#inputPrixVente");
+let inputMarge = document.querySelector("#inputMarge");
+let inputVenteTTC = document.querySelector("#inputVenteTTC");
+let inputQuantite = document.querySelector("#inputQuantite");
+let selectType = document.querySelector("#selectType");
+let inputAlcool = document.querySelector("#inputAlcool");
+let ficheProduit = document.querySelector(".ficheProduit");
 
 let caracteristiques =[];
 
 
-function carctFiche() {
+function imageFiche(creaProduitValue) {
+    if (creaProduitValue === "soda" || "coca" || "fanta") {
+        const imageSoda = document.createElement("img");
+        imageSoda.src ="images/soda.png"
+        ficheProduit.appendChild(imageSoda);
+    }   
     
 }
 
@@ -23,17 +35,24 @@ ajouter.addEventListener("click", function (event) {
     const typeProduit = document.createElement("td");
     const degAlcool = document.createElement("td");
     const quantite = document.createElement("td");
-    const validateButtonTable = document.createElement("td");
+
+    const prixAchatValue = inputPrixAchat.value;
+    const prixVenteValue = inputPrixVente.value;
+    const margeValue = inputPrixVente.value - inputPrixAchat.value / 100;
+    const prixVenteTTCValue = inputPrixVente.value * 1 + 20 / 100;
+    const typeProduitValue = selectType.value;
+    const quantiteValue = inputQuantite.value;
+    const alcoolValue = inputAlcool.value;
+
 
     ficheArticle.innerHTML = (creaProduitValue);
-    prixAchat.innerHTML =("<input type =number step =0.1>");
-    prixVente.innerHTML =("<input type =number step =0.1>");
-    marge.innerHTML =("<input type =number step =0.1>");
-    prixVenteTTC.innerHTML =("<input type =number step =0.1>");
-    typeProduit.innerHTML =("<select id = valueProduit><option value =>Choisir type</option><option value =ba>Boisson alcoolisée</option><option value =bna>Boisson non alcoolisée</option></select>");
-    degAlcool.innerHTML =("<input id = valueAlcool type =text value =>"); 
-    quantite.innerHTML =("<input type =number>");
-    validateButtonTable.innerHTML =("<input type =button value =ok class =validateButtonTable>");
+    prixAchat.innerHTML =(prixAchatValue);
+    prixVente.innerHTML =(prixVenteValue);
+    marge.innerHTML =(margeValue + "%")
+    prixVenteTTC.innerHTML =(prixVenteTTCValue);
+    typeProduit.innerHTML =(typeProduitValue);
+    degAlcool.innerHTML =(alcoolValue); 
+    quantite.innerHTML =(quantiteValue);
     
     bodyTable.appendChild(ficheArticleContainer);
     ficheArticleContainer.appendChild(ficheArticle);
@@ -44,16 +63,38 @@ ajouter.addEventListener("click", function (event) {
     ficheArticleContainer.appendChild(typeProduit);
     ficheArticleContainer.appendChild(degAlcool);
     ficheArticleContainer.appendChild(quantite);
-    ficheArticleContainer.appendChild(validateButtonTable)
 
-    validateButtonTable.addEventListener("click", function (validateButtonTable) {
-       const prixAchatValue = prixAchat.value;
-       const prixVenteValue = prixVente.value;
-       const margeValue = marge.value;
-       const prixVenteTTCValue = prixVenteTTC.value;
+    const modifyButton = document.createElement("td");
+    modifyButton.innerHTML =("<button>modifier</button>");
+    ficheArticleContainer.appendChild(modifyButton);
+
+    const validateButton= document.createElement("td");
+    validateButton.innerText =("Save");
+    ficheArticleContainer.appendChild(validateButton);
+
+    imageFiche(creaProduitValue)
+
+    let ficheStock = {
+        achatHT: prixAchatValue,
+        venteHT: prixVenteValue,
+        marge
+    }
+ 
+
+    modifyButton.addEventListener("clicl", function (ficheArticleContainer) {
         
-       console.log(prixAchatValue, prixVenteValue, margeValue);
-    })  
+    })
 })
 
 
+        // let fiche = {
+        //     prixAchatValue,
+        //     prixAchatValue,
+        //     margeValue,
+        //     prixVenteTTCValue,
+        //     quantiteValue
+        // }
+
+        // fiche.push(caracteristiques);
+
+        // localStorage.setItem("caracteristiques", JSON.stringify(caracteristiques));
