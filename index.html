@@ -12,16 +12,27 @@
     
 </header>
 <body>
-    <h1>Gestion des stocks</h1>
+    <section class="gestionArticle">
+        <div class="gestionArticleContainer">
+            <input type="text" placeholder="rechercher" class="searchBarre">
+            <button class="validateButton">rechercher fiche article</button>
+        </div>
+        <div class="caracteristiques">
+            <legend>créer un article</legend>
+            <input type="text" placeholder="Nom" class="creationProduit">
+            <label for="prixAchat"> Prix d'achat</label>
+            <input type="number" name="prixAchat">
+            <button class="ajouter">créer la fiche article</button>
+
+        </div>
+        <div class="detailArticle">
+            
+        </div>
+    </section>
+    <div class="inputFiche">
+        
+    </div>
     <section class="stockContainer">
-        <section class="gestionArticle">
-            <div class="gestionArticleContainer">
-                <input type="text" placeholder="créer un produit" class="creationProduit">
-                <button class="ajouter">créer la fiche article</button>
-                <input type="text" placeholder="rechercher" class="searchBarre">
-                <button class="validateButton">rechercher fiche article</button>
-            </div>
-        </section>
         <table class ="listeArticle">
             <thead>
                 <tr>

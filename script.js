@@ -5,10 +5,8 @@ let listeArticle = document.querySelector(".listeArticle");
 let bodyTable = document.querySelector(".bodyTable");
 
 
-// validateButtonTable.addEventListener("click", function calculPvMarge() {
-//     marge.value = ((prixVente - prixAchat) / prixAchat) * 100;
-//     console.log(marge.value);
-// })
+
+
 
 ajouter.addEventListener("click", function (event) {
     event.preventDefault();
@@ -29,8 +27,8 @@ ajouter.addEventListener("click", function (event) {
     prixVente.innerHTML =("<input type =number step =0.1>");
     marge.innerHTML =("<input type =number step =0.1>");
     prixVenteTTC.innerHTML =("<input type =number step =0.1>");
-    typeProduit.innerHTML =("<select class =valueProduit><option value =>Choisir type</option><option value =ba>Boisson alcoolisée</option><option value =bna>Boisson non alcoolisée</option></select>");
-    degAlcool.innerHTML =("<input type =text value = N/A>"); 
+    typeProduit.innerHTML =("<select id = valueProduit><option value =>Choisir type</option><option value =ba>Boisson alcoolisée</option><option value =bna>Boisson non alcoolisée</option></select>");
+    degAlcool.innerHTML =("<input id = valueAlcool type =text value =>"); 
     quantite.innerHTML =("<input type =number>");
     validateButtonTable.innerHTML =("<input type =button value =ok class =validateButtonTable>");
     
@@ -45,8 +43,18 @@ ajouter.addEventListener("click", function (event) {
     ficheArticleContainer.appendChild(degAlcool);
     ficheArticleContainer.appendChild(quantite);
     ficheArticleContainer.appendChild(validateButtonTable)
-  
-    // calculPvMarge();
+
+    validateButtonTable.addEventListener("click", function (validateButtonTable) {
+        valueProduit = document.getElementById("valueProduit");
+        valueAlcool = document.getElementById("valueAlcool");
+        console.log(valueProduit.value);
+        if(valueProduit.value == "bna"){
+            degAlcool.innerHTML =("<input id = valueAlcool type =text value =N/A>")
+        } else {
+            degAlcool.innerHTML =("<input id = valueAlcool type =text value =>")
+        }
+        
+    })  
 })
 
 
