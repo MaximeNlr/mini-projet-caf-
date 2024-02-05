@@ -1,12 +1,14 @@
 let searchBarre = document.querySelector(".searchBarre");
 let creationProduit = document.querySelector(".creationProduit");
-let typeProduit = document.querySelector(".typeProduit");
 let ajouter = document.querySelector(".ajouter");
 let listeArticle = document.querySelector(".listeArticle");
 let bodyTable = document.querySelector(".bodyTable");
 
 
-
+// validateButtonTable.addEventListener("click", function calculPvMarge() {
+//     marge.value = ((prixVente - prixAchat) / prixAchat) * 100;
+//     console.log(marge.value);
+// })
 
 ajouter.addEventListener("click", function (event) {
     event.preventDefault();
@@ -18,14 +20,21 @@ ajouter.addEventListener("click", function (event) {
     const marge = document.createElement("td");
     const prixVenteTTC = document.createElement("td");
     const typeProduit = document.createElement("td");
+    const degAlcool = document.createElement("td");
+    const quantite = document.createElement("td");
+    const validateButtonTable = document.createElement("td");
 
     ficheArticle.innerHTML = (creaProduitValue);
-    prixAchat.innerHTML =("<input type =number>");
-    prixVente.innerHTML =("<input type =number>");
-    marge.innerHTML =("<input type =number>");
-    prixVenteTTC.innerHTML =("<input type =number>");
-    typeProduit.innerHTML =("<select><option value =>Choisir type</option><option value =ba>Boisson alcoolisée</option><option value =bna>Boisson non alcoolisée</option></select>")
+    prixAchat.innerHTML =("<input type =number step =0.1>");
+    prixVente.innerHTML =("<input type =number step =0.1>");
+    marge.innerHTML =("<input type =number step =0.1>");
+    prixVenteTTC.innerHTML =("<input type =number step =0.1>");
+    typeProduit.innerHTML =("<select class =valueProduit><option value =>Choisir type</option><option value =ba>Boisson alcoolisée</option><option value =bna>Boisson non alcoolisée</option></select>");
+    degAlcool.innerHTML =("<input type =text value = N/A>"); 
+    quantite.innerHTML =("<input type =number>");
+    validateButtonTable.innerHTML =("<input type =button value =ok class =validateButtonTable>");
     
+
     bodyTable.appendChild(ficheArticleContainer);
     ficheArticleContainer.appendChild(ficheArticle);
     ficheArticleContainer.appendChild(prixAchat);
@@ -33,12 +42,11 @@ ajouter.addEventListener("click", function (event) {
     ficheArticleContainer.appendChild(marge);
     ficheArticleContainer.appendChild(prixVenteTTC);
     ficheArticleContainer.appendChild(typeProduit);
-
-
-
-
-
-    
+    ficheArticleContainer.appendChild(degAlcool);
+    ficheArticleContainer.appendChild(quantite);
+    ficheArticleContainer.appendChild(validateButtonTable)
+  
+    // calculPvMarge();
 })
 
 
