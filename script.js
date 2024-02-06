@@ -13,88 +13,83 @@ let ficheProduit = document.querySelector(".ficheProduit");
 
 let caracteristiques =[];
 
+    if (JSON.parse(localStorage.getItem("caracteristiques"))) {
+        caracteristiques = JSON.parse(localStorage.getItem("caracteristiques"));
+        renderArray(caracteristiques);   
+    } else {
+        caracteristiques = [];
+    }
 
-function imageFiche(creaProduitValue) {
-    if (creaProduitValue === "soda" || "coca" || "fanta") {
-        const imageSoda = document.createElement("img");
-        imageSoda.src ="images/soda.png"
-        ficheProduit.appendChild(imageSoda);
-    }   
-    
+function renderArray(array) {
+    let tr = "";
+    array.forEach(function (ficheStock, index) {
+        tr = tr + `<tr>
+        <td>${ficheStock.nomProduit}</td>
+        <td>${ficheStock.achatHT}</td>
+        <td>${ficheStock.venteHT}</td>
+        <td>${ficheStock.margeHT}</td>
+        <td>${ficheStock.venteTTC}</td>
+        <td>${ficheStock.type}</td>
+        <td>${ficheStock.alcool}</td>
+        <td><input type =number id =quantiteTdInput value ="${ficheStock.quantiteStock}"></td>
+        <td><button class ="deleteButton">delete</button></td>
+        <td><button class ="modifyButton">modifier</button><td>
+        </tr> ` 
+    }) 
+    bodyTable.innerHTML = tr;
+    let deleteButtonArray = document.querySelectorAll(".deleteButton");
+    deleteButtonArray.forEach(function (deleteButton, index) {
+        deleteButton.addEventListener("click", function () {
+            caracteristiques.splice(index,1);
+            renderArray(caracteristiques);
+        })
+    })
+
+    let modifyButtonArray = document.querySelectorAll(".modifyButton");
+    modifyButtonArray.forEach(function (modifyButton, index) {
+        modifyButton.addEventListener("click", function name(params) {
+            tr.Remove();
+        })
+    })
 }
+
+
+function FicheArticle (creationProduitValue, prixAchatValue, prixVenteValue, margeValue, prixVenteTTCValue, typeProduitValue, alcoolValue, quantiteValue) {
+    this.nomProduit = creationProduitValue,
+    this.achatHT = prixAchatValue,
+    this.venteHT = prixVenteValue,
+    this.margeHT = margeValue,
+    this.venteTTC = prixVenteTTCValue,
+    this.type = typeProduitValue,
+    this.alcool = alcoolValue,
+    this.quantiteStock = quantiteValue
+}
+
 
 ajouter.addEventListener("click", function (event) {
     event.preventDefault();
     const creaProduitValue = creationProduit.value;
-    const ficheArticleContainer = document.createElement("tr");
-    const ficheArticle = document.createElement("td");
-    const prixAchat = document.createElement("td");
-    const prixVente = document.createElement("td");
-    const marge = document.createElement("td");
-    const prixVenteTTC = document.createElement("td");
-    const typeProduit = document.createElement("td");
-    const degAlcool = document.createElement("td");
-    const quantite = document.createElement("td");
-
     const prixAchatValue = inputPrixAchat.value;
     const prixVenteValue = inputPrixVente.value;
-    const margeValue = inputPrixVente.value - inputPrixAchat.value / 100;
+    const margeValue = inputPrixVente.value - inputPrixAchat.value;
     const prixVenteTTCValue = inputPrixVente.value * 1 + 20 / 100;
     const typeProduitValue = selectType.value;
     const quantiteValue = inputQuantite.value;
     const alcoolValue = inputAlcool.value;
 
-
-    ficheArticle.innerHTML = (creaProduitValue);
-    prixAchat.innerHTML =(prixAchatValue);
-    prixVente.innerHTML =(prixVenteValue);
-    marge.innerHTML =(margeValue + "%")
-    prixVenteTTC.innerHTML =(prixVenteTTCValue);
-    typeProduit.innerHTML =(typeProduitValue);
-    degAlcool.innerHTML =(alcoolValue); 
-    quantite.innerHTML =(quantiteValue);
-    
-    bodyTable.appendChild(ficheArticleContainer);
-    ficheArticleContainer.appendChild(ficheArticle);
-    ficheArticleContainer.appendChild(prixAchat);
-    ficheArticleContainer.appendChild(prixVente);
-    ficheArticleContainer.appendChild(marge);
-    ficheArticleContainer.appendChild(prixVenteTTC);
-    ficheArticleContainer.appendChild(typeProduit);
-    ficheArticleContainer.appendChild(degAlcool);
-    ficheArticleContainer.appendChild(quantite);
-
-    const modifyButton = document.createElement("td");
-    modifyButton.innerHTML =("<button>modifier</button>");
-    ficheArticleContainer.appendChild(modifyButton);
-
-    const validateButton= document.createElement("td");
-    validateButton.innerText =("Save");
-    ficheArticleContainer.appendChild(validateButton);
-
-    imageFiche(creaProduitValue)
-
-    let ficheStock = {
-        achatHT: prixAchatValue,
-        venteHT: prixVenteValue,
-        marge
-    }
+    let ficheStock = new FicheArticle (
+        creaProduitValue,
+        prixAchatValue,
+        prixVenteValue,
+        margeValue,
+        prixVenteTTCValue,
+        typeProduitValue,
+        alcoolValue,
+        quantiteValue
+    )
+    caracteristiques.push(ficheStock);
+    renderArray(caracteristiques)
  
-
-    modifyButton.addEventListener("clicl", function (ficheArticleContainer) {
-        
-    })
+        localStorage.setItem("caracteristiques", JSON.stringify(caracteristiques));
 })
 
-
-        // let fiche = {
-        //     prixAchatValue,
-        //     prixAchatValue,
-        //     margeValue,
-        //     prixVenteTTCValue,
-        //     quantiteValue
-        // }
-
-        // fiche.push(caracteristiques);
-
-        // localStorage.setItem("caracteristiques", JSON.stringify(caracteristiques));

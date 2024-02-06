@@ -1,12 +1,14 @@
 .stockContainer {
     display: flex;
+    gap: 40px;
 }
 
 .gestionArticle {
-    background-color: #365486;
+    background-color: #919191;
     border: 1px solid black;
     height: 100%;
     padding: 10px;
+    box-shadow: 5px 5px 5px 5px rgb(93, 93, 93);
     color: white;
 }
 
@@ -39,23 +41,18 @@
 }
 
 .ficheProduit {
-    background-color: #365486;
+    background-color: #57698a;
     padding-left: 40px;
 }
-
-.ficheProduit img {
-    background-color: white;
-    margin-top: 20px;
-    width: 70%;
-}
-
 .listeArticle{
-    background-color: #365486;     
+    background-color: #919191;     
     padding: 20px; 
     border: 1px solid black;
     width: 100%; 
     text-align: center;
     height: 50px;
+    box-shadow: 5px 5px 5px 5px rgb(93, 93, 93);
+    color: white;
 }
 
 .listeArticle th {
@@ -65,8 +62,12 @@
 }
 
 .listeArticle td {
-    border: 1px solid black;
-    background-color: white;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    padding: 5px 0;
+}
+
+#quantiteTdInput {
+    width: 20%;
 }
 
 

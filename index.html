@@ -23,9 +23,9 @@
                 <input type="number" name="prixVente" step="0.1" id="inputPrixVente">
             </div>
             <div class="caract2">
-                <label for="">marge</label>
+                <label for="">Marge (calcul auto)</label>
                 <input type="number" step="0.1" id="inputMarge">
-                <label for="venteTTC">Prix vente TTC</label>
+                <label for="venteTTC">Prix vente TTC (calcul auto)</label>
                 <input type="number" name="" step="0.1" id="inputVenteTTC">
                 <label for="">Quantité</label>
                 <input type="number" min="0" id="inputQuantite">
@@ -33,21 +33,21 @@
             <div class="caract3">
                 <label for="">type de boisson</label>
                 <select name="" id="selectType">
+                    <option value="type">Type</option>
                     <option value="BA">Boisson Alcoolisée</option>
                     <option value="BNA">Boisson non alcoolisée</option>
+                    <option value="autre">Autre</option>
                 </select>
                 <label for="">% d'alcool</label>
                 <input type="number" id="inputAlcool">
-                <button class="ajouter">créer la fiche article</button>
+                <button class="ajouter">enregistrer</button>
             </div>
-            <div class="gestionArticleContainer">
+            <!-- <div class="gestionArticleContainer">
                 <input type="text" placeholder="rechercher" class="searchBarre">
                 <button class="validateButton">rechercher fiche article</button>
-            </div>
+            </div> -->
         </section>
-        <section class="ficheProduit">
-
-        </section>
+        
         <table class ="listeArticle">
             <thead>
                 <tr>
@@ -59,7 +59,6 @@
                     <th>Type</th>
                     <th>% d'alcool</th>
                     <th>Quantité</th>
-                    <th>Action</th>
                 </tr>
             </thead>
             <tbody class="bodyTable">
@@ -68,9 +67,6 @@
         </table>
     </section>
 </body>
-
-    
-
     <script src="script.js"></script>
 </body>
 
