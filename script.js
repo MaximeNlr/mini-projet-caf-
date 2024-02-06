@@ -48,7 +48,7 @@ function renderArray(array) {
     let modifyButtonArray = document.querySelectorAll(".modifyButton");
     modifyButtonArray.forEach(function (modifyButton, index) {
         modifyButton.addEventListener("click", function name(params) {
-            tr.Remove();
+            
         })
     })
 }
